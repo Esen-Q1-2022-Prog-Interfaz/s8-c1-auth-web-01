@@ -10,7 +10,7 @@ def home():
 
 @auth.route("/login")
 def login():
-    return render_template("home.html")
+    return render_template("login.html")
 
 
 @auth.route("/register")
