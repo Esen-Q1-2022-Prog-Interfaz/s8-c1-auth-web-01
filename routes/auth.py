@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, redirect, url_for
-from flask_login import login_user
+from flask_login import login_user, login_required, logout_user, current_user
 from forms.registerForm import RegisterForm
 from forms.loginForm import LoginForm
 from utils.bcryptService import bcrypt
@@ -45,6 +45,14 @@ def register():
     return render_template("register.html", form=form)
 
 
+@auth.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for("auth.login"))
+
+
 @auth.route("/dashboard")
+@login_required
 def dashboard():
-    return render_template("dashboard.html")
+    print(f"current_user: {current_user}")
+    return render_template("dashboard.html", user=current_user)

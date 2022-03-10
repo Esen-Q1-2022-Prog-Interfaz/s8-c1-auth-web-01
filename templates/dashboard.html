@@ -3,5 +3,8 @@
 {% block contents %}
 <h1>dashboard page</h1>
 <br>
+{% if user %}
+<p>Hello, {{user.username}}</p>
+{% endif %}
 <p>this is my awesome dashboard</p>
 {% endblock %}

@@ -7,6 +7,7 @@ from utils.loginManagerService import login_manager
 app = Flask(__name__)
 
 app.config.from_object("config.BaseConfig")
+print(app.config)
 
 SQLAlchemy(app)
 Bcrypt(app)
