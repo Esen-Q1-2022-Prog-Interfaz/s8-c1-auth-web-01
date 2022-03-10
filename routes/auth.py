@@ -38,7 +38,7 @@ def register():
         username = form.username.data
         password = form.password.data
         hashed_password = bcrypt.generate_password_hash(password)
-        newUser = User(username, hashed_password)
+        newUser = User(username, hashed_password, "active", "captain")
         db.session.add(newUser)
         db.session.commit()
         return redirect(url_for("auth.login"))
